@@ -26,10 +26,11 @@ ARG gid=1000
 RUN adduser --disabled-password --gecos "" lchy0113 \
     && echo 'lchy0113:lchy0113' | chpasswd \
     && adduser lchy0113 sudo \
-    && echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
+    && echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+	&& mkdir /var/run/sshd
 
-RUN echo "root:1234" | chpasswd
-RUN echo "lchy0113:1234" | chpasswd
+#RUN echo "root:1234" | chpasswd
+#RUN echo "lchy0113:1234" | chpasswd
 
 RUN apt-get update
 RUN apt-get -y upgrade
@@ -67,19 +68,22 @@ ENV LCHY0113_AGENT_HOME ${LCHY0113_AGENT_HOME}
 #        -e 's/#PasswordAuthentication.*/PasswordAuthentication no/' \
 #        -e 's/#SyslogFacility.*/SyslogFacility AUTH/' \
 #        -e 's/#LogLevel.*/LogLevel INFO/' && \
-#    mkdir /var/run/sshd
+#    mkdir -p /var/run/sshd
 
-VOLUME  "/tmp" "/run" "/var/run"
 WORKDIR "${LCHY0113_AGENT_HOME}"
 
 COPY setup-sshd /usr/local/bin/setup-sshd
 
 EXPOSE 22
 
-RUN  mkdir -p /home/lchy0113/.ssh/
-COPY .ssh/* /home/lchy0113/.ssh/
-RUN chown lchy0113:lchy0113 -R /home/lchy0113/.ssh/
+#RUN  mkdir -p /home/lchy0113/.ssh/
+#COPY .ssh/* /home/lchy0113/.ssh/
+#RUN chown lchy0113:lchy0113 -R /home/lchy0113/.ssh/
 
 USER lchy0113
 
-ENTRYPOINT ["setup-sshd"]
+#RUN ssh-keygen -A
+#CMD ["/usr/sbin/sshd", "-D"]
+#CMD ["/bin/bash"]
+
+ENTRYPOINT ["/usr/local/bin/setup-sshd"]
