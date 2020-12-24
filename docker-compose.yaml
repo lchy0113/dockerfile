@@ -39,25 +39,25 @@ services:
       HN_network:
         ipv4_address : 172.22.0.13
 
-#  i386_develop:
-#    container_name: i386_develop
-#    image: ubuntu16_04_i386_slave:latest
-#    command: /bin/bash
-#    ports:
-#      - "9024:22"
-#    environment:
-#      - TZ=Asia/Seoul
-#    expose:
-#      - "9024"
-#    stdin_open: true
-#    volumes:
-#      - '/home/lchy0113:/home/lchy0113'
-#      - '/dev/bus/usb:/dev/bus/usb'
-#      - '/etc/localtime:/etc/localtime'
-#    privileged: true
-#    networks:
-#      HN_network:
-#        ipv4_address : 172.22.0.14
+  i386_develop:
+    container_name: i386_develop
+    image: ubuntu16_04_i386_slave:latest
+    command: /bin/bash
+    ports:
+      - "9024:22"
+    environment:
+      - TZ=Asia/Seoul
+    expose:
+      - "9024"
+    stdin_open: true
+    volumes:
+      - '/home/lchy0113:/home/lchy0113'
+      - '/dev/bus/usb:/dev/bus/usb'
+      - '/etc/localtime:/etc/localtime'
+    privileged: true
+    networks:
+      HN_network:
+        ipv4_address : 172.22.0.14
 
 networks:
   HN_network:
