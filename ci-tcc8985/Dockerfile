@@ -66,7 +66,8 @@ RUN apt-get -y install \
 		openssh-server \
 		locales	\
 		figlet \
-		repo
+		repo	\
+		figlet
 
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
