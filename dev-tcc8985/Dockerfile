@@ -61,14 +61,13 @@ RUN apt-get -y install \
 	cscope	\
 	openssh-server \
 	locales	\
-	repo
+	repo	\ 
+	figlet
 	
 # Sets Language to UTF8 : this works in pretty much all cases
-RUN LANGUAGE=ko_KR.UTF-8 LANG=ko_KR.UTF-8 locale-gen ko_KR ko_KR.UTF-8
-ENV LANGUAGE ko_KR.UTF-8
-ENV LANG ko_KR.UTF-8
-ENV LC_ALL ko_KR.UTF-8
-
+RUN locale-gen en_US.UTF-8
+ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+RUN export LC_ALL="en_US.UTF-8"
 
 RUN mkdir -p /var/run/sshd
 
