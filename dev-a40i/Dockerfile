@@ -91,10 +91,10 @@ RUN mkdir -p /home/lchy0113/.ssh && \
 		chmod 0700 /home/lchy0113/.ssh
 COPY id_rsa /home/lchy0113/.ssh/
 COPY id_rsa.pub /home/lchy0113/.ssh/
-COPY setup_ssh-agent.sh /home/lchy0113/.ssh
+COPY add_script_to_bashrc.sh /home/lchy0113/.ssh
 RUN chown lchy0113:lchy0113 -R /home/lchy0113/.ssh
-RUN chmod 0700 /home/lchy0113/.ssh/setup_ssh-agent.sh
-RUN /home/lchy0113/.ssh/setup_ssh-agent.sh
+RUN chmod 0700 /home/lchy0113/.ssh/add_script_to_bashrc.sh
+RUN /home/lchy0113/.ssh/add_script_to_bashrc.sh
 RUN ssh-agent > ~/.ssh-agent.sh
 
 RUN git config --global user.email "lchyq113@kdiwin.com"
