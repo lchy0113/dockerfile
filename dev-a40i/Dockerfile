@@ -5,12 +5,14 @@
 
 # Base image
 # ====================================================================== #
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 # Author
 # ====================================================================== #
 LABEL maintainer "lchy0113@gmail.com"
 
+
+ARG DEBIAN_FRONTEND=noninteractive
 
 # Update apt-get
 RUN apt-get -y update
@@ -53,6 +55,8 @@ RUN apt-get -y install \
 	lib32z-dev	\
 	libgl1-mesa-dev	\
 	libxml2-utils	\
+	libncurses5 \
+	rsync \
 	xsltproc	\
 	vim	\
 	usbutils	\
@@ -61,7 +65,6 @@ RUN apt-get -y install \
 	cscope	\
 	openssh-server \
 	locales	\
-	repo	\ 
 	cpio	\
 	gawk	\
 	busybox	\
@@ -71,6 +74,7 @@ RUN apt-get -y install \
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN export LC_ALL="en_US.UTF-8"
+RUN export LC_ALL=C
 
 RUN mkdir -p /var/run/sshd
 
