@@ -30,6 +30,7 @@ RUN apt-get -y install \
 	curl	\
 	u-boot-tools	\
 	python	\
+	python-dev \
 	mtd-utils	\
 	openjdk-8-jdk	\
 	device-tree-compiler	\
