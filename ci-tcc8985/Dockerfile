@@ -76,8 +76,15 @@ RUN adduser --disabled-password -gecos "" jenkins \
 		&& echo 'jenkins:1234' | chpasswd \
 		&& adduser jenkins sudo \
 		&& echo 'jenkins ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
-		&& mkdir /var/run/sshd
+		&& mkdir -p /var/run/sshd
 
+RUN adduser --disabled-password -gecos "" bamboo \
+		&& echo 'bamboo:bamboo' | chpasswd \
+		&& adduser bamboo sudo \
+		&& echo 'bamboo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
+		&& mkdir -p /var/run/sshd
+
+		
 WORKDIR /home/$(whoami)/
 
 EXPOSE 22
