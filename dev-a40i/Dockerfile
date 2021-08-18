@@ -78,6 +78,7 @@ RUN export LC_ALL="en_US.UTF-8"
 RUN export LC_ALL=C
 
 RUN mkdir -p /var/run/sshd
+RUN mkdir -p /home/working_space/Develop_lchy0113
 
 RUN adduser -u 1000 --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
@@ -86,6 +87,7 @@ RUN adduser -u 1000 --disabled-password -gecos "" lchy0113 \
 
 RUN mkdir -p /home/lchy0113/Develop/Allwinner && \
 		chown lchy0113:lchy0113 -R /home/lchy0113/Develop
+RUN mkdir -p /home/lchy0113/bin
 
 #ADD setup.sh /setup.sh
 #RUN chmod 0755 /setup.sh
