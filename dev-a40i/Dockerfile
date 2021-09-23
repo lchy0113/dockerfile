@@ -78,7 +78,7 @@ RUN export LC_ALL="en_US.UTF-8"
 RUN export LC_ALL=C
 
 RUN mkdir -p /var/run/sshd
-RUN mkdir -p /home/working_space/Develop_lchy0113
+RUN mkdir -p /home/lchy0113/ssd/Allwinner
 
 RUN adduser -u 1000 --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
@@ -99,9 +99,10 @@ RUN mkdir -p /home/lchy0113/.ssh && \
 COPY id_rsa /home/lchy0113/.ssh/
 COPY id_rsa.pub /home/lchy0113/.ssh/
 COPY add_script_to_bashrc.sh /home/lchy0113/.ssh
-RUN chown lchy0113:lchy0113 -R /home/lchy0113/.ssh
+COPY .bashrc /home/lchy0113/.bashrc
 RUN chmod 0700 /home/lchy0113/.ssh/add_script_to_bashrc.sh
 RUN /home/lchy0113/.ssh/add_script_to_bashrc.sh
+RUN chown lchy0113:lchy0113 -R /home/lchy0113/
 RUN ssh-agent > ~/.ssh-agent.sh
 
 RUN git config --global user.email "lchyq113@kdiwin.com"
