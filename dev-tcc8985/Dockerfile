@@ -70,7 +70,6 @@ ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 RUN export LC_ALL="en_US.UTF-8"
 
 RUN mkdir -p /var/run/sshd
-RUN mkdir -p /home/working_space/Develop_lchy0113
 
 RUN adduser -u 1000 --disabled-password -gecos "" lchy0113 \
 		&& echo 'lchy0113:lchy0113' | chpasswd \
