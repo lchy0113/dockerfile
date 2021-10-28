@@ -62,7 +62,8 @@ RUN apt-get -y install \
 	openssh-server \
 	locales	\
 	repo	\ 
-	figlet
+	figlet	\
+	tzdata
 	
 # Sets Language to UTF8 : this works in pretty much all cases
 RUN locale-gen en_US.UTF-8
