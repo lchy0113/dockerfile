@@ -13,7 +13,6 @@ services:
     stdin_open: true
     volumes:
       - '/home/lchy0113:/home/lchy0113'
-      - '/dev/bus/usb:/dev/bus/usb'
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
