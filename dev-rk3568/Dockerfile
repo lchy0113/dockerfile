@@ -46,6 +46,7 @@ RUN apt-get -y install \
 	build-essential	\
 	libssl-dev \
 	cpio \
+	liblz4-tool \
 	gcc-multilib	\
 	g++-multilib	\
 	libc6-dev-i386	\
