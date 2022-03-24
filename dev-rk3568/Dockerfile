@@ -45,6 +45,7 @@ RUN apt-get -y install \
 	gperf	\
 	build-essential	\
 	libssl-dev \
+	cpio \
 	gcc-multilib	\
 	g++-multilib	\
 	libc6-dev-i386	\
