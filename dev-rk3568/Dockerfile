@@ -67,7 +67,8 @@ RUN apt-get -y install \
 	locales	\
 	repo	\ 
 	figlet	\
-	tzdata
+	tzdata	\
+	rsync
 	
 # Sets Language to UTF8 : this works in pretty much all cases
 RUN locale-gen en_US.UTF-8
