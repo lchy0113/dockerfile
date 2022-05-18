@@ -5,7 +5,7 @@
 
 # Base image
 # ====================================================================== #
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
 # Author
 # ====================================================================== #
@@ -16,6 +16,7 @@ LABEL maintainer "lchy0113@gmail.com"
 RUN apt-get -y update
 
 # Installing packages
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install \
 	uuid 	\
 	uuid-dev	\

@@ -58,7 +58,6 @@ services:
 
   qemu_develop:
     container_name: qemu_develop
-#    image: 192.168.27.12:5000/pub-nxp:latest
     image: test-qemu:latest
     command: /usr/sbin/sshd -D
     ports:
@@ -73,6 +72,23 @@ services:
     networks:
       PRIV_network:
         ipv4_address : 172.22.0.9
+
+  rk3568_develop:
+    container_name: rk3568_develop
+    image: dev-rk3568:latest
+    command: /usr/sbin/sshd -D
+    ports:
+      - "9026:22"
+    expose:
+      - '9026'
+    stdin_open: true
+    volumes:
+      - '/home/lchy0113:/home/lchy0113'
+      - '/etc/localtime:/etc/localtime'
+    privileged: true
+    networks:
+      PRIV_network:
+        ipv4_address : 172.22.0.10
 
 #  i386_develop:
 #    container_name: i386_develop
