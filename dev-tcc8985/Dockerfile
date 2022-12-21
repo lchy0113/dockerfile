@@ -5,7 +5,7 @@
 
 # Base image
 # ====================================================================== #
-FROM ubuntu:16.04
+FROM ubuntu:20.04
 
 # Author
 # ====================================================================== #
@@ -16,6 +16,7 @@ LABEL maintainer "lchy0113@gmail.com"
 RUN apt-get -y update
 
 # Installing packages
+ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get -y install \
 	uuid 	\
 	uuid-dev	\
@@ -61,9 +62,10 @@ RUN apt-get -y install \
 	cscope	\
 	openssh-server \
 	locales	\
-	repo	\ 
 	figlet	\
-	tzdata
+	tzdata	\
+	libncurses5 \
+	rsync
 	
 # Sets Language to UTF8 : this works in pretty much all cases
 RUN locale-gen en_US.UTF-8
@@ -77,6 +79,11 @@ RUN adduser -u 1000 --disabled-password -gecos "" lchy0113 \
 		&& adduser lchy0113 sudo \
 		&& echo 'lchy0113 ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers 
 
+
+RUN mkdir -p /home/lchy0113/bin
+RUN PATH=/home/lchy0113/bin:$PATH
+RUN curl https://storage.googleapis.com/git-repo-downloads/repo > /home/lchy0113/bin/repo
+RUN chmod a+x /home/lchy0113/bin/repo
 
 VOLUME "/tmp" "/run" "/var/run"
 
