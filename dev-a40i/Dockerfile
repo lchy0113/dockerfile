@@ -105,8 +105,8 @@ RUN /home/lchy0113/.ssh/add_script_to_bashrc.sh
 RUN chown lchy0113:lchy0113 -R /home/lchy0113/
 RUN ssh-agent > ~/.ssh-agent.sh
 
-RUN git config --global user.email "lchyq113@kdiwin.com"
-RUN git config --global user.name "이창용 (HN연구팀)"
+RUN git config --global user.email "lchy0113@gmail.com"
+RUN git config --global user.name "Lee.C"
 
 VOLUME "/tmp" "/run" "/var/run"
 
