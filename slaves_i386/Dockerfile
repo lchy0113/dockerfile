@@ -49,6 +49,16 @@ COPY openssl-1.1.1g.tar.gz /root/
 RUN cd /root && tar zxvf openssl-1.1.1g.tar.gz && cd openssl-1.1.1g && ./Configure  linux-x86 -DL_ENDIAN no-idea no-md2 no-mdc2 no-rc5 no-rc4 zlib &&  make && make install
 
 RUN sudo apt-get install -y g++
+
+RUN sudo apt-get install -y software-properties-common
+
+RUN sudo add-apt-repository -y ppa:deadsnakes/ppa
+
+RUN apt-get update
+RUN apt-get -y upgrade
+
+COPY repo /usr/bin/repo
+
 COPY cmake-3.18.2.tar.gz /root/
 RUN cd /root && tar zxvf cmake-3.18.2.tar.gz && cd cmake-3.18.2 && ./configure && make && make install
 
