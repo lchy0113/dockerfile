@@ -1,6 +1,50 @@
 ## docker readme document.
 =====
 
+# Install docker Desktop on ubuntu
+> reference : https://docs.docker.com/desktop/install/ubuntu/
+
+
+# Install docker-compose
+ curl command를 통해 docker-compose를 설치합니다.
+
+ - 최신 버전을 아래 링크에서 확인
+   * https://github.com/docker/compose/releases
+```bash
+// remove old docker-composie 
+$ sudo apt-get remove docker-compose -y
+
+// install jq library 
+$ sudo snap install jq
+
+// check latest version
+
+$ VERSION=$(curl --silent https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
+$ DESTINATION=/usr/bin/docker-compose
+
+// download latest version
+$ sudo curl -L https://github.com/docker/compose/releases/download/${VERSION}/docker-compose-$(uname -s)-$(uname -m) -o $DESTINATION
+
+// chmod set
+$ sudo chmod 755 $DESTINATION
+
+// version check
+$ docker-compose -v
+
+```
+
+ - docker compose 권한 설정
+```bash
+$ sudo chmod +x /usr/local/bin/docker-compose
+```
+
+ - 심볼릭 링크 설정(설정을 안해주면 아래와 같은 path error 발생)
+```bash
+$ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
+```
+
+
+
 # docker 권한
 -----
 docker 는 root 권한이 기본적으로 필요하다. 그래서 sudo 없이 사용하기 위해서 다음과 같이 사용자를 docker그룹에 추가한다.
