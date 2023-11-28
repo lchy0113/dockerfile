@@ -110,6 +110,25 @@ services:
       PRIV_network:
         ipv4_address : 172.22.0.14
 
+  matter_develop:
+    container_name: matter_develop
+    image: dev-matter:latest
+    command: /usr/sbin/sshd -D
+    ports:
+      - "9027:22"
+    expose:
+      - '9027'
+    stdin_open: true
+    volumes:
+      - '/home/lchy0113:/home/lchy0113'
+      - '/etc/localtime:/etc/localtime'
+    privileged: true
+    networks:
+      PRIV_network:
+        ipv4_address : 172.22.0.17
+
+
+
 networks:
   PRIV_network:
     ipam:
