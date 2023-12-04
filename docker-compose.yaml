@@ -16,7 +16,7 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.7
 
   a40i_develop:
@@ -35,7 +35,7 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.13
 
   nxp_develop:
@@ -53,7 +53,7 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.8
 
   qemu_develop:
@@ -70,7 +70,7 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.9
 
   rk3568_develop:
@@ -87,7 +87,7 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.10
 
   i386_develop:
@@ -107,7 +107,7 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.14
 
   matter_develop:
@@ -124,13 +124,14 @@ services:
       - '/etc/localtime:/etc/localtime'
     privileged: true
     networks:
-      PRIV_network:
+      priv_network:
         ipv4_address : 172.22.0.17
 
 
 
 networks:
-  PRIV_network:
+  priv_network:
+    driver: bridge
     ipam:
       driver: default
       config: 
