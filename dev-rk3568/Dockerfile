@@ -43,6 +43,8 @@ RUN apt-get -y install \
 	gnupg	\
 	flex	\
 	bison	\
+	libelf-dev \
+	dwarves \
 	gperf	\
 	build-essential	\
 	libssl-dev \
