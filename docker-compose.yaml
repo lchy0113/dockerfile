@@ -131,7 +131,6 @@ services:
 
 networks:
   priv_network:
-    driver: bridge
     ipam:
       driver: default
       config: 

@@ -38,7 +38,10 @@ RUN apt-get -y install \
 		libgirepository1.0-dev	\
 		libcairo2-dev	\
 		libreadline-dev	\
-		libsdl2-dev
+		libsdl2-dev	\
+		curl	\
+		openjdk-17-jdk \ 
+		kotlin
 
 #	zlib1g-dev	\
 #	liblz-dev	\
