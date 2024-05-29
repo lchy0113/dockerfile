@@ -40,7 +40,7 @@ RUN apt-get -y install \
 		libreadline-dev	\
 		libsdl2-dev	\
 		curl	\
-		openjdk-17-jdk \ 
+ 		openjdk-11-jdk \
 		kotlin
 
 #	zlib1g-dev	\
