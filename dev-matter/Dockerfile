@@ -34,6 +34,7 @@ RUN apt-get -y install \
 		python3-venv	\
 		python3-dev	\
 		python3-pip	\
+		zip	\
 		unzip	\
 		libgirepository1.0-dev	\
 		libcairo2-dev	\
@@ -41,7 +42,7 @@ RUN apt-get -y install \
 		libsdl2-dev	\
 		curl	\
  		openjdk-11-jdk \
-		kotlin
+		kotlin  
 
 #	zlib1g-dev	\
 #	liblz-dev	\
@@ -95,7 +96,13 @@ RUN apt-get -y install \
 #	chrpath	\
 #	socat
 
-	
+RUN curl -s https://get.sdkman.io | bash
+RUN chmod a+x "$HOME/.sdkman/bin/sdkman-init.sh"
+SHELL ["/bin/bash", "-c"]  
+RUN source "$HOME/.sdkman/bin/sdkman-init.sh" \
+		&& sdk install kotlin
+
+
 # Sets Language to UTF8 : this works in pretty much all cases
 RUN locale-gen en_US.UTF-8
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
